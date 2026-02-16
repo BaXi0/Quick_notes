@@ -2,6 +2,8 @@ from datetime import datetime
 import json
 import os
 
+
+
 # Czyszczenie zawartości okna konsoli
 def eraser():
     if os.name == 'nt':
@@ -54,11 +56,20 @@ def add_entry1(nazwa_pliku):
 
 #4 Dodaj wpis z własną datą
 def add_entry2(nazwa_pliku):
+    eraser()
     option_name = 'dodaj-wpis-z-własną-datą'
     print_header(option_name)
 
     # Pobieranie daty od użytkownika
     today_u = input('Wpisz własną datę w formacie: DD.MM.RRRR \n-->')
+    # Walidacja formatu daty
+    try:
+        datetime.strptime(today_u, "%d.%m.%Y")
+    except ValueError:
+        eraser()
+        print('Nieprawidłowy format daty! Wprowadź datę ponownie!')
+        return add_entry2(nazwa_pliku)
+    
     # Pobieranie wpisu od użytkownika
     new_entry = input('Wpisz treść swojego wpisu: \n--> ')
 
