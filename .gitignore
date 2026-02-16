@@ -1,2 +1,5 @@
+__pycache__/
 venv/
 tekst.txt
+quick_notes.txt
+config.json
