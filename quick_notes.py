@@ -122,7 +122,7 @@ def main_menu():
     # Ładowanie konfiguracji
     nazwa = load_config.load_config()
     print(load_config.load_config())
-    # nazwa = 'tekst.txt'
+    
     name_q = 'Zakończono-program-Do-zobaczenia'
     
     # Główna pętla

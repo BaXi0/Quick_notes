@@ -1,16 +1,21 @@
+from pathlib import Path
 import os
 import json
-from quick_notes import print_header
+from quick_notes import print_header, eraser
 
-
-CONFIG_FILE = 'config.json'
 
 # Wczytuje konfiguracje z pliku JSON lub tworzy domyślną konfigurację, jeśli plik nie istnieje
 def load_config():
+    # Nazwy stałe plików
+    CONFIG_FILE = './data/config.json'
+
+    loading = 'Wczytywanie-konfiguracji-z-pliku...'
+    
+
     if not os.path.exists(CONFIG_FILE):
         return create_default_config()
     else:
-        print('Wczytywanie konfiguracji z pliku...')
+        print(print_header(loading))
         try:
             with open(CONFIG_FILE, 'r', encoding='utf-8') as cf:
                 config = json.load(cf)
