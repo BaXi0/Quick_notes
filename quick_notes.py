@@ -3,6 +3,9 @@ import json
 import os
 
 
+import load_config
+
+
 
 # Czyszczenie zawartości okna konsoli
 def eraser():
@@ -116,9 +119,11 @@ def clear_txt(file_name):
 #Funkcja odpowiadająca za MENU 
 def main_menu():
     
-    # Nazwa pliku
-    nazwa = 'tekst.txt'
-    name_q = 'Zakończono-program.-Do-zobaczenia'
+    # Ładowanie konfiguracji
+    nazwa = load_config.load_config()
+    print(load_config.load_config())
+    # nazwa = 'tekst.txt'
+    name_q = 'Zakończono-program-Do-zobaczenia'
     
     # Główna pętla
     while True:
